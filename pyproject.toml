@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "llm-stress-test-cli"
+version = "0.1.0"
+description = "并发压测工具,测试大模型的P99延迟和Token生成速度"
+authors = ["Chance Dean <novelnexusai@outlook.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "llm_stress_test_cli", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiohttp = "^3.9.0"
+click = "^8.1.0"
+rich = "^13.7.0"
+numpy = "^1.24.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-asyncio = "^0.21.0"
+black = "^23.12.0"
+ruff = "^0.1.0"
+
+[tool.poetry.scripts]
+llm-stress-test = "llm_stress_test_cli.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
